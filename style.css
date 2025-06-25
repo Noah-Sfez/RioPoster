@@ -7,7 +7,8 @@
     padding: 0;
 }
 
-html, body {
+html,
+body {
     height: 100%;
 }
 
@@ -16,15 +17,23 @@ body {
     font-family: inherit;
     background: #fff;
     color: #000;
+    overflow: hidden;
 }
 
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
     display: block;
     max-width: 100%;
     height: auto;
 }
 
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
     font: inherit;
     color: inherit;
     background: none;
@@ -37,11 +46,182 @@ a {
     text-decoration: none;
 }
 
-ul, ol {
+ul,
+ol {
     list-style: none;
 }
 
 table {
     border-collapse: collapse;
     border-spacing: 0;
+}
+
+/*------------------------------------------------------*/
+
+body {
+    font-family: "Arial", sans-serif;
+    background: linear-gradient(
+        270deg,
+        rgba(30, 30, 50, 0.95) 0%,
+        rgba(40, 40, 70, 0.95) 25%,
+        rgba(60, 60, 100, 0.95) 50%,
+        rgba(40, 40, 70, 0.95) 75%,
+        rgba(30, 30, 50, 0.95) 100%
+    );
+    background-size: 1600% 1600%;
+    color: #eee;
+    animation: carnival-gradient 20s ease-in-out infinite;
+}
+
+
+
+@keyframes carnival-gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.absolute {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rotate {
+    transform: rotate(25deg);
+}
+.rotate-2 {
+    transform: rotate(-25deg);
+}
+
+#fireworks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+#bird {
+    position: fixed;
+    top: 30vh;
+    left: -200px;
+    width: 170px;
+    z-index: 10000;
+    pointer-events: none;
+    transition: filter 0.2s;
+}
+
+#bird2 {
+    position: fixed;
+    top: 38vh;
+    left: 100vw;
+    width: 190px;
+    z-index: 10000;
+    pointer-events: none;
+    transition: filter 0.2s;
+    transform: scaleX(-1); /* Pour qu'il regarde vers la gauche */
+}
+
+#vegetation {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 30vh;
+    pointer-events: none;
+    z-index: 100;
+}
+
+#statue-bg {
+    position: absolute;
+    left: 4vw;
+    bottom: 0vh;
+    width: 680px;
+    opacity: 0.7;
+    z-index: 1;
+    pointer-events: none;
+    filter: brightness(0.7) grayscale(1);
+}
+
+.rio-title {
+    font-family: "Baloo 2", cursive, sans-serif;
+    font-size: 5vw;
+    font-weight: 800;
+    text-align: center;
+    width: 100vw;
+    margin: 4vh 0 0 0;
+    letter-spacing: 0.1em;
+    position: absolute;
+    top: 2vh;
+    left: 0;
+    z-index: 10001;
+    user-select: none;
+    pointer-events: none;
+    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+}
+.rio-title .green {
+    color: #1abc3a;
+}
+.rio-title .yellow {
+    color: #ffe600;
+}
+
+#danseuse {
+    position: fixed;
+    right: 2vw;
+    bottom: 0vh;
+    width: 380px;
+    z-index: 120;
+    pointer-events: none;
+    user-select: none;
+}
+
+.serpentine-letter {
+    display: inline-block;
+    animation: serpentin 1.8s infinite ease-in-out;
+}
+
+@keyframes serpentin {
+    0% {
+        transform: translateY(0);
+    }
+    20% {
+        transform: translateY(-18%);
+    }
+    40% {
+        transform: translateY(18%);
+    }
+    60% {
+        transform: translateY(-12%);
+    }
+    80% {
+        transform: translateY(12%);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
