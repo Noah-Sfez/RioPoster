@@ -73,8 +73,6 @@ body {
     animation: carnival-gradient 20s ease-in-out infinite;
 }
 
-
-
 @keyframes carnival-gradient {
     0% {
         background-position: 0% 50%;
@@ -94,8 +92,9 @@ body {
     justify-content: center;
     height: 100vh;
 }
-.main img{
-    filter: drop-shadow(0 0 40px #ffeb3b) drop-shadow(0 0 80px #1abc3a) drop-shadow(0 0 120px #00bcd4);
+.main img {
+    filter: drop-shadow(0 0 40px #ffeb3b) drop-shadow(0 0 80px #1abc3a)
+        drop-shadow(0 0 120px #00bcd4);
     mix-blend-mode: lighten;
 }
 
@@ -147,7 +146,7 @@ body {
     z-index: 10000;
     pointer-events: none;
     transition: filter 0.2s;
-    transform: scaleX(-1); /* Pour qu'il regarde vers la gauche */
+    transform: scaleX(-1);
 }
 
 #vegetation {
@@ -165,10 +164,13 @@ body {
     left: 4vw;
     bottom: 0vh;
     width: 680px;
-    opacity: 0.7;
+    opacity: 1;
     z-index: 1;
     pointer-events: none;
     filter: brightness(0.7) grayscale(1);
+    filter: drop-shadow(0 0 40px #ffeb3b) drop-shadow(0 0 80px #1abc3a)
+        drop-shadow(0 0 120px #00bcd4);
+    mix-blend-mode: lighten;
 }
 
 .rio-title {
@@ -228,4 +230,26 @@ body {
     100% {
         transform: translateY(0);
     }
+}
+
+#palm-bg {
+    position: absolute;
+    left: -60px;
+    bottom: 20px;
+    width: 520px;
+    opacity: 0.18;
+    z-index: 0;
+    pointer-events: none;
+    user-select: none;
+}
+#palm-bg-2 {
+    position: absolute;
+    right: -60px;
+    top: 30px;
+    width: 520px;
+    opacity: 0.18;
+    z-index: 0;
+    rotate: -90deg;
+    pointer-events: none;
+    user-select: none;
 }
