@@ -80,7 +80,6 @@ canvas.addEventListener("click", (e) => {
 
 /*----------------------------Bird-----------------------------------------*/
 
-
 const bird = document.getElementById("bird");
 let birdX = -200;
 let birdY = window.innerHeight * 0.3;
@@ -139,7 +138,7 @@ animate();
 
 // ----------------------------Vegetation-----------------------------------------
 var Vegcanvas = document.getElementById("vegetation"),
-    Vegctx = canvas.getContext("2d"),
+    Vegctx = Vegcanvas.getContext("2d"),
     stack = [],
     w = window.innerWidth,
     h = window.innerHeight;
@@ -154,9 +153,9 @@ var drawer = function () {
 var anim = function () {
     var x = 0,
         y = 0;
-    var maxTall = Math.random() * (h / 14) + h / 14;
+    var maxTall = Math.random() * (h / 6) + h / 6;
     var maxSize = Math.random() * (h / 60) + 5;
-    var speed = Math.random() * 1;
+    var speed = Math.random() * 3 + 1.5;
     var position = Math.random() * w - w / 2;
     var c = function (l, u) {
         return Math.round(Math.random() * (u || 255) + l || 0);
@@ -190,11 +189,7 @@ Vegcanvas.width = w;
 Vegcanvas.height = h;
 drawer();
 
-
 /*----------------------------Serpentine Letters-------------------------*/
 document.querySelectorAll(".serpentine-letter").forEach((el, i) => {
     el.style.animationDelay = i * 0.12 + "s";
 });
-
-
-

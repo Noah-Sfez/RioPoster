@@ -94,6 +94,10 @@ body {
     justify-content: center;
     height: 100vh;
 }
+.main img{
+    filter: drop-shadow(0 0 40px #ffeb3b) drop-shadow(0 0 80px #1abc3a) drop-shadow(0 0 120px #00bcd4);
+    mix-blend-mode: lighten;
+}
 
 .absolute {
     position: absolute;
