@@ -24,7 +24,6 @@ function resizePlumesCanvas() {
 window.addEventListener("resize", resizePlumesCanvas);
 resizePlumesCanvas();
 
-// Génère une plume
 function createPlume() {
     const rect = masque.getBoundingClientRect();
     const angle = Math.random() * Math.PI - Math.PI / 2;
