@@ -14,14 +14,14 @@ Plongez dans l’univers festif, rythmé par la samba, les costumes éclatants e
 
 ## 👥 Collaborateurs
 
-- **Noah S.**
-- **[Ajoutez ici les autres noms]**
+- **Noah Sfez**
+- **Antoine Schmerber-Perraud**
 
 ---
 
 ## 🖼️ Moodboard
 
-> _Ajoutez ici la photo de votre moodboard pour inspirer la création du poster !_
+> _Image du moodboard_
 
 ![Moodboard](./images/moodboard.png)
 
