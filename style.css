@@ -253,3 +253,18 @@ body {
     pointer-events: none;
     user-select: none;
 }
+
+#plumes {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 200;
+}
+#masque {
+    position: relative;
+    z-index: 201;
+    cursor: pointer;
+}
