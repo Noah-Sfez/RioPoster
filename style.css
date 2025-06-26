@@ -208,7 +208,7 @@ body {
 
 .serpentine-letter {
     display: inline-block;
-    animation: serpentin 1.8s infinite ease-in-out;
+    /* animation: serpentin 1.8s infinite ease-in-out; */
 }
 
 @keyframes serpentin {

@@ -78,3 +78,36 @@ masque.addEventListener("click", () => {
     }
     animatePlumes();
 });
+
+gsap.set(".serpentine-letter", {
+    y: -120,
+    opacity: 0,
+    scale: 0.7,
+    rotation: -30,
+});
+
+gsap.to(".serpentine-letter", {
+    y: 0,
+    opacity: 1,
+    scale: 1,
+    rotation: 0,
+    stagger: 0.13,
+    ease: "back.out(2.2)",
+    duration: 1.3,
+    delay: 0.3,
+    onComplete: () => {
+        gsap.to(".serpentine-letter", {
+            y: (i) => Math.sin(i * 0.7) * 12,
+            rotation: (i) => Math.sin(i * 0.5) * 8,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut",
+            duration: 1.5,
+            stagger: {
+                each: 0.07,
+                repeat: -1,
+                yoyo: true,
+            },
+        });
+    },
+});
