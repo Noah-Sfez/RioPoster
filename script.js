@@ -79,26 +79,41 @@ masque.addEventListener("click", () => {
     animatePlumes();
 });
 
+// Apparition festive avec rebond, rotation, éclat et couleurs changeantes
+
+const carnivalColors = [
+    "#ffe600",
+    "#1abc3a",
+    "#00bcd4",
+    "#ff5ec3",
+    "#ff9800",
+    "#8e44ad",
+    "#f44336",
+];
+
 gsap.set(".serpentine-letter", {
     y: -120,
     opacity: 0,
     scale: 0.7,
     rotation: -30,
+    filter: "drop-shadow(0 0 0px #fff)",
 });
 
 gsap.to(".serpentine-letter", {
     y: 0,
     opacity: 1,
-    scale: 1,
+    scale: 1.15,
     rotation: 0,
     stagger: 0.13,
     ease: "back.out(2.2)",
-    duration: 1.3,
+    duration: 1.1,
     delay: 0.3,
     onComplete: () => {
+        // Effet d'ondulation et de rotation permanent
         gsap.to(".serpentine-letter", {
-            y: (i) => Math.sin(i * 0.7) * 12,
-            rotation: (i) => Math.sin(i * 0.5) * 8,
+            y: (i) => Math.sin(i * 0.7) * 16,
+            rotation: (i) => Math.sin(i * 0.5) * 12,
+            scale: 1,
             repeat: -1,
             yoyo: true,
             ease: "sine.inOut",
@@ -108,6 +123,37 @@ gsap.to(".serpentine-letter", {
                 repeat: -1,
                 yoyo: true,
             },
+        });
+
+        // Effet d'éclat rapide sur chaque lettre après apparition
+        document.querySelectorAll(".serpentine-letter").forEach((el, i) => {
+            setTimeout(() => {
+                gsap.fromTo(
+                    el,
+                    {
+                        filter: "drop-shadow(0 0 0px #fff)",
+                    },
+                    {
+                        filter: "drop-shadow(0 0 24px #fff)",
+                        duration: 0.25,
+                        yoyo: true,
+                        repeat: 1,
+                        ease: "power1.inOut",
+                    }
+                );
+            }, 800 + i * 120);
+        });
+
+        // Animation de couleurs en boucle façon carnaval
+        document.querySelectorAll(".serpentine-letter").forEach((el, i) => {
+            gsap.to(el, {
+                color: carnivalColors,
+                repeat: -1,
+                yoyo: true,
+                duration: 2.5 + Math.random(),
+                ease: "none",
+                delay: 1 + i * 0.07,
+            });
         });
     },
 });
