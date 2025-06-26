@@ -79,7 +79,6 @@ masque.addEventListener("click", () => {
     animatePlumes();
 });
 
-// Apparition festive avec rebond, rotation, éclat et couleurs changeantes
 
 const carnivalColors = [
     "#ffe600",
@@ -109,7 +108,6 @@ gsap.to(".serpentine-letter", {
     duration: 1.1,
     delay: 0.3,
     onComplete: () => {
-        // Effet d'ondulation et de rotation permanent
         gsap.to(".serpentine-letter", {
             y: (i) => Math.sin(i * 0.7) * 16,
             rotation: (i) => Math.sin(i * 0.5) * 12,
@@ -125,7 +123,6 @@ gsap.to(".serpentine-letter", {
             },
         });
 
-        // Effet d'éclat rapide sur chaque lettre après apparition
         document.querySelectorAll(".serpentine-letter").forEach((el, i) => {
             setTimeout(() => {
                 gsap.fromTo(
@@ -144,7 +141,6 @@ gsap.to(".serpentine-letter", {
             }, 800 + i * 120);
         });
 
-        // Animation de couleurs en boucle façon carnaval
         document.querySelectorAll(".serpentine-letter").forEach((el, i) => {
             gsap.to(el, {
                 color: carnivalColors,
