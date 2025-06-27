@@ -95,7 +95,6 @@ body {
 .main img {
     filter: drop-shadow(0 0 40px #ffeb3b) drop-shadow(0 0 80px #1abc3a)
         drop-shadow(0 0 120px #00bcd4);
-    mix-blend-mode: lighten;
 }
 
 .absolute {
@@ -161,16 +160,12 @@ body {
 
 #statue-bg {
     position: absolute;
-    left: 4vw;
+    left: 26vw;
     bottom: 0vh;
-    width: 680px;
+    width: 800px;
     opacity: 1;
     z-index: 1;
     pointer-events: none;
-    filter: brightness(0.7) grayscale(1);
-    filter: drop-shadow(0 0 40px #ffeb3b) drop-shadow(0 0 80px #1abc3a)
-        drop-shadow(0 0 120px #00bcd4);
-    mix-blend-mode: lighten;
 }
 
 .rio-title {
@@ -267,4 +262,33 @@ body {
     position: relative;
     z-index: 201;
     cursor: pointer;
+}
+
+.affiche-date {
+    position: fixed;
+    bottom: 10vh;
+    left: 0;
+    width: 100vw;
+    text-align: center;
+    font-family: "Baloo 2", cursive, sans-serif;
+    font-size: 2.2vw;
+    color: #ffe600;
+    letter-spacing: 0.15em;
+    text-shadow: 0 2px 12px #1abc3a, 0 0 8px #222;
+    z-index: 2000;
+    pointer-events: none;
+    user-select: none;
+}
+
+.container{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+canvas{
+    position: absolute;
+    top: 0;
+    left: 0;
 }
