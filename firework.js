@@ -1,8 +1,8 @@
 var RENDERER = {
     LEAF_INTERVAL_RANGE: { min: 100, max: 200 },
-    FIREWORK_INTERVAL_RANGE: { min: 20, max: 200 },
+    FIREWORK_INTERVAL_RANGE: { min: 10, max: 80 },
     SKY_COLOR: "hsla(210, 60%, %luminance%, 0.2)",
-    STAR_COUNT: 500,
+    STAR_COUNT: Math.floor(500 + Math.random() * 1001),
 
     init: function () {
         this.setParameters();
@@ -477,6 +477,26 @@ const FIREWORK_COLORS = ["#e31a67", "#3964ba", "#f3c602", "#2e4090"];
 document.addEventListener("DOMContentLoaded", function () {
     RENDERER.init();
 });
+
+const audio = new Audio("./sounds/artifice.mp3");
+audio.loop = true; // Pour que la musique tourne en boucle
+
+// Pour lancer automatiquement (attention, certains navigateurs exigent une interaction utilisateur)
+document.addEventListener("DOMContentLoaded", function () {
+    RENDERER.init();
+    // Essayez de jouer le son (certains navigateurs bloquent sans interaction)
+    audio.play().catch(() => {
+        // Si bloqué, on lance au premier clic
+        window.addEventListener(
+            "click",
+            () => {
+                audio.play();
+            },
+            { once: true }
+        );
+    });
+});
+
 function drawBanderole(ctx, side = "left", offsetX = 0) {
     // Attendre que l'image soit chargée
     if (!banderolleImg.complete) {
