@@ -140,7 +140,6 @@ var RENDERER = {
         drawBanderole(contextTwigs, "left", -60);
         drawBanderole(contextTwigs, "right", 60);
     },
-    
 };
 var TWIG = function (width, height, x, y, angle, theta) {
     this.width = width;
@@ -480,14 +479,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const audio = new Audio("./sounds/artifice.mp3");
 audio.loop = true;
+audio.volume = 1;
+
+const musique = new Audio("./sounds/masquenada.mp3");
+musique.loop = true;
+musique.volume = 0.2;
 
 document.addEventListener("DOMContentLoaded", function () {
     RENDERER.init();
-    audio.play().catch(() => {
+    audio.play().catch(() => {});
+    musique.play().catch(() => {
         window.addEventListener(
             "click",
             () => {
                 audio.play();
+                musique.play();
             },
             { once: true }
         );

@@ -93,8 +93,8 @@ body {
     height: 100vh;
 }
 .main img {
-    filter: drop-shadow(0 0 40px #ffeb3b) drop-shadow(0 0 80px #1abc3a)
-        drop-shadow(0 0 120px #00bcd4);
+    filter: drop-shadow(0 0 40px #040d3a) drop-shadow(0 0 80px #1a237e)
+        drop-shadow(0 0 120px #0d133d);
 }
 
 .absolute {
@@ -129,15 +129,17 @@ body {
     z-index: 9999;
 }
 
-
 #statue-bg {
-    position: absolute;
-    left: 26vw;
-    bottom: 0vh;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     width: 800px;
+    height: 790px;
     opacity: 1;
     z-index: 1;
     pointer-events: none;
+    position: relative;
+    bottom: 790px;
 }
 
 .rio-title {
@@ -167,7 +169,6 @@ body {
     display: inline-block;
     /* animation: serpentin 1.8s infinite ease-in-out; */
 }
-
 
 #plumes {
     position: fixed;
@@ -200,6 +201,25 @@ body {
     user-select: none;
 }
 
+#jsi-fireworks-container,
+.container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    min-width: 100vw;
+    min-height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+#jsi-fireworks-container,
+.container canvas {
+    height: 100vh;
+}
 .container {
     position: absolute;
     width: 100%;
@@ -256,4 +276,3 @@ canvas {
     color: #ffe600;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
-
