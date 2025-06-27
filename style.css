@@ -266,7 +266,7 @@ body {
 
 .affiche-date {
     position: fixed;
-    bottom: 10vh;
+    bottom: 5vh;
     left: 0;
     width: 100vw;
     text-align: center;
@@ -280,15 +280,83 @@ body {
     user-select: none;
 }
 
-.container{
+.container {
     position: absolute;
     width: 100%;
     height: 100vh;
     top: 0;
     left: 0;
 }
-canvas{
+canvas {
     position: absolute;
     top: 0;
     left: 0;
+}
+
+/* Informations du Carnaval */
+.carnival-info {
+    position: fixed;
+    top: 80vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    font-family: "Baloo 2", cursive, sans-serif;
+    z-index: 1500;
+    pointer-events: none;
+    user-select: none;
+}
+
+.event-title {
+    font-size: 2.5em;
+    font-weight: 800;
+    color: #ffe600;
+    text-shadow: 0 2px 8px #1abc3a, 0 0 15px rgba(255, 230, 0, 0.5);
+    margin-bottom: 20px;
+    letter-spacing: 0.1em;
+}
+
+.event-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    justify-items: center;
+}
+
+.detail-item {
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+.detail-item strong {
+    color: #ffe600;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive pour mobile */
+@media (max-width: 768px) {
+    .carnival-info {
+        top: 65vh;
+        width: 95%;
+    }
+
+    .event-title {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+
+    .event-details {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .detail-item {
+        font-size: 0.9em;
+        padding: 8px 12px;
+    }
 }
