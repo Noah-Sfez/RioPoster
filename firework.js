@@ -102,6 +102,11 @@ var RENDERER = {
             maxOpacity = Math.max(maxOpacity, this.fireworks[i].getOpacity());
         }
         contextTwigs.clearRect(0, 0, this.width, this.height);
+
+        // Ajoute ceci :
+        drawBanderole(contextTwigs, "left", -60);
+        drawBanderole(contextTwigs, "right", 60);
+
         contextFireworks.fillStyle = this.SKY_COLOR.replace(
             "%luminance",
             5 + maxOpacity * 15
@@ -358,8 +363,8 @@ FIREWORK.prototype = {
         this.createParticles();
     },
     setParameters: function () {
-        var hue = (256 * Math.random()) | 0;
-
+        this.color =
+            FIREWORK_COLORS[Math.floor(Math.random() * FIREWORK_COLORS.length)];
         this.x = this.renderer.getRandomValue({
             min: this.width / 8,
             max: (this.width * 7) / 8,
@@ -370,7 +375,6 @@ FIREWORK.prototype = {
         });
         this.x0 = this.x;
         this.y0 = this.height + this.RADIUS;
-        this.color = this.COLOR.replace("%hue", hue);
         this.status = 0;
         this.theta = 0;
         this.waitCount = this.renderer.getRandomValue(this.WAIT_COUNT_RANGE);
@@ -469,6 +473,53 @@ PARTICLE.prototype = {
         this.vy *= this.FRICTION;
     },
 };
+const FIREWORK_COLORS = ["#e31a67", "#3964ba", "#f3c602", "#2e4090"];
 document.addEventListener("DOMContentLoaded", function () {
     RENDERER.init();
 });
+function drawBanderole(ctx, side = "left", offsetX = 0) {
+    // Attendre que l'image soit chargée
+    if (!banderolleImg.complete) {
+        banderolleImg.onload = () => drawBanderole(ctx, side, offsetX);
+        return;
+    }
+    ctx.save();
+    const scale = 0.32;
+    const imgWidth = ctx.canvas.width * scale;
+    const imgHeight = imgWidth * (banderolleImg.height / banderolleImg.width);
+    const y = 0;
+    const angle = (33 * Math.PI) / 180;
+
+    if (side === "left") {
+        ctx.translate(
+            ctx.canvas.width * 0.01 + imgWidth / 2 + offsetX,
+            y + imgHeight / 2
+        );
+        ctx.rotate(-angle);
+        ctx.drawImage(
+            banderolleImg,
+            -imgWidth / 2,
+            -imgHeight / 2,
+            imgWidth,
+            imgHeight
+        );
+    } else {
+        ctx.translate(
+            ctx.canvas.width * 0.99 - imgWidth / 2 + offsetX, // <-- Ajoute offsetX ici
+            y + imgHeight / 2
+        );
+        ctx.rotate(angle); // vers l'extérieur droite
+        ctx.scale(-1, 1);
+        ctx.drawImage(
+            banderolleImg,
+            -imgWidth / 2,
+            -imgHeight / 2,
+            imgWidth,
+            imgHeight
+        );
+    }
+    ctx.restore();
+}
+
+const banderolleImg = new Image();
+banderolleImg.src = "./images/banderolle.png";
