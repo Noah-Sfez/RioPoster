@@ -129,36 +129,6 @@ body {
     z-index: 9999;
 }
 
-#bird {
-    position: fixed;
-    top: 30vh;
-    left: -200px;
-    width: 170px;
-    z-index: 10000;
-    pointer-events: none;
-    transition: filter 0.2s;
-}
-
-#bird2 {
-    position: fixed;
-    top: 38vh;
-    left: 100vw;
-    width: 190px;
-    z-index: 10000;
-    pointer-events: none;
-    transition: filter 0.2s;
-    transform: scaleX(-1);
-}
-
-#vegetation {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100vw;
-    height: 30vh;
-    pointer-events: none;
-    z-index: 100;
-}
 
 #statue-bg {
     position: absolute;
@@ -193,63 +163,11 @@ body {
     color: #ffe600;
 }
 
-#danseuse {
-    position: fixed;
-    right: 2vw;
-    bottom: 0vh;
-    width: 380px;
-    z-index: 120;
-    pointer-events: none;
-    user-select: none;
-}
-
 .serpentine-letter {
     display: inline-block;
     /* animation: serpentin 1.8s infinite ease-in-out; */
 }
 
-@keyframes serpentin {
-    0% {
-        transform: translateY(0);
-    }
-    20% {
-        transform: translateY(-18%);
-    }
-    40% {
-        transform: translateY(18%);
-    }
-    60% {
-        transform: translateY(-12%);
-    }
-    80% {
-        transform: translateY(12%);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
-
-#palm-bg {
-    position: absolute;
-    left: -60px;
-    bottom: 20px;
-    width: 520px;
-    opacity: 0.18;
-    z-index: -1;
-    pointer-events: none;
-    user-select: none;
-}
-#palm-bg-2 {
-    position: absolute;
-    right: -60px;
-    top: 30px;
-    width: 520px;
-    opacity: 0.18;
-    z-index: -1;
-    rotate: -90deg;
-    pointer-events: none;
-    user-select: none;
-}
 
 #plumes {
     position: fixed;
@@ -295,7 +213,6 @@ canvas {
     left: 0;
 }
 
-/* Informations du Carnaval */
 .carnival-info {
     position: fixed;
     top: 80vh;
@@ -340,25 +257,3 @@ canvas {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
-/* Responsive pour mobile */
-@media (max-width: 768px) {
-    .carnival-info {
-        top: 65vh;
-        width: 95%;
-    }
-
-    .event-title {
-        font-size: 1.8em;
-        margin-bottom: 15px;
-    }
-
-    .event-details {
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
-
-    .detail-item {
-        font-size: 0.9em;
-        padding: 8px 12px;
-    }
-}

@@ -103,10 +103,6 @@ var RENDERER = {
         }
         contextTwigs.clearRect(0, 0, this.width, this.height);
 
-        // Ajoute ceci :
-        drawBanderole(contextTwigs, "left", -60);
-        drawBanderole(contextTwigs, "right", 60);
-
         contextFireworks.fillStyle = this.SKY_COLOR.replace(
             "%luminance",
             5 + maxOpacity * 15
@@ -140,7 +136,11 @@ var RENDERER = {
                 this.getRandomValue(this.FIREWORK_INTERVAL_RANGE) | 0;
             this.fireworkInterval = this.maxFireworkInterval;
         }
+
+        drawBanderole(contextTwigs, "left", -60);
+        drawBanderole(contextTwigs, "right", 60);
     },
+    
 };
 var TWIG = function (width, height, x, y, angle, theta) {
     this.width = width;
@@ -479,14 +479,11 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 const audio = new Audio("./sounds/artifice.mp3");
-audio.loop = true; // Pour que la musique tourne en boucle
+audio.loop = true;
 
-// Pour lancer automatiquement (attention, certains navigateurs exigent une interaction utilisateur)
 document.addEventListener("DOMContentLoaded", function () {
     RENDERER.init();
-    // Essayez de jouer le son (certains navigateurs bloquent sans interaction)
     audio.play().catch(() => {
-        // Si bloqué, on lance au premier clic
         window.addEventListener(
             "click",
             () => {
@@ -498,7 +495,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function drawBanderole(ctx, side = "left", offsetX = 0) {
-    // Attendre que l'image soit chargée
     if (!banderolleImg.complete) {
         banderolleImg.onload = () => drawBanderole(ctx, side, offsetX);
         return;
@@ -525,10 +521,10 @@ function drawBanderole(ctx, side = "left", offsetX = 0) {
         );
     } else {
         ctx.translate(
-            ctx.canvas.width * 0.99 - imgWidth / 2 + offsetX, // <-- Ajoute offsetX ici
+            ctx.canvas.width * 0.99 - imgWidth / 2 + offsetX,
             y + imgHeight / 2
         );
-        ctx.rotate(angle); // vers l'extérieur droite
+        ctx.rotate(angle);
         ctx.scale(-1, 1);
         ctx.drawImage(
             banderolleImg,
